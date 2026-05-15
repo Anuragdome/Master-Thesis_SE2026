@@ -15,3 +15,17 @@ Second Supervisor: Dr. Iftikhar Ahmed
 
 Date: May 6, 2026
  
+
+Problem Statement:
+Existing knowledge graph construction methods from unstructured documents are limited by fragmented pipelines, LLM hallucinations, poor entity resolution, scalability issues, lack of ontology alignment, and insufficient evaluation mechanisms, making reliable large-scale graph construction challenging.
+
+- Current systems perform tasks like entity recognition and relation extraction separately instead of using a unified end-to-end pipeline.
+- LLMs may generate hallucinated or unsupported entities and relationships.
+- Different names, abbreviations, and synonyms for the same entity create redundancy and inconsistency.
+- Processing large document collections with LLMs is computationally expensive and difficult to scale.
+- Existing methods lack efficient batching, parallelization, and cost optimization strategies.
+- There is no comprehensive framework to evaluate graph accuracy, completeness, and consistency.
+- Extracted entities and relationships are often not properly aligned with ontologies or schemas.
+- These limitations reduce the reliability and practical deployment of automated knowledge graph systems.
+
+
