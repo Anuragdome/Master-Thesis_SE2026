@@ -1,4 +1,1 @@
-End-to-End Data Pipeline for Large-Scale
-Knowledge Graph Construction from
-Unstructured Documents using Large Language Models
-
+Progress report: 
