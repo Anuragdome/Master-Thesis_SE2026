@@ -1,0 +1,17 @@
+End-to-End Data Pipeline for Large-Scale
+Knowledge Graph Construction from
+Unstructured Documents using Large Language Models
+Master's Thesis Proposal
+
+
+
+Submitted by:
+Anurag Balasaheb Dome
+MSc Software Engineering
+University of Europe for Applied Sciences, Potsdam
+
+Supervisor: Prof. Dr. Farhan Khan 
+Second Supervisor: Dr. Iftikhar Ahmed
+
+Date: May 6, 2026
+ 
