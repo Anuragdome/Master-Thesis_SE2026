@@ -1,1 +1,9 @@
 Progress report:  
+
+Date 13th May: 
+Completed Tasks: 
+- Finished literature review and thesis proposal 
+- Registered the Thesis with university 
+
+Current Work:
+- Started working on the implementation of the Knowledge Graph Pipeline 
