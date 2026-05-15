@@ -7,3 +7,4 @@ Completed Tasks:
 
 Current Work:
 - Started working on the implementation of the Knowledge Graph Pipeline 
+- Will start uploading code step by step this week 
