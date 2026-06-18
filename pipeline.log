@@ -1,0 +1,91 @@
+11:58:53  INFO      =======================================================
+11:58:53  INFO        KNOWLEDGE GRAPH PIPELINE
+11:58:53  INFO      =======================================================
+11:58:53  INFO      
+[ STAGE 1 ] Document Ingestion
+11:58:53  INFO      Found 3 document(s) to ingest
+11:58:53  INFO        albert_einstein.txt: 2 chunk(s)
+11:58:53  INFO        marie_curie.txt: 2 chunk(s)
+11:58:53  INFO        openai.txt: 2 chunk(s)
+11:58:53  INFO      Total chunks produced: 6
+11:58:53  INFO      
+[ STAGE 2 ] LLM Extraction (gemini / gemini-2.5-flash)
+11:58:53  INFO        Extracting chunk 1/6: albert_einstein.txt_chunk_0000
+11:58:58  INFO      AFC is enabled with max remote calls: 10.
+11:59:15  INFO      HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+11:59:16  INFO        Extracting chunk 2/6: albert_einstein.txt_chunk_0001
+11:59:16  INFO      AFC is enabled with max remote calls: 10.
+11:59:28  INFO      HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+11:59:29  INFO        Extracting chunk 3/6: marie_curie.txt_chunk_0000
+11:59:29  INFO      AFC is enabled with max remote calls: 10.
+11:59:48  INFO      HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+11:59:48  INFO        Extracting chunk 4/6: marie_curie.txt_chunk_0001
+11:59:48  INFO      AFC is enabled with max remote calls: 10.
+12:00:05  INFO      HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+12:00:06  INFO        Extracting chunk 5/6: openai.txt_chunk_0000
+12:00:06  INFO      AFC is enabled with max remote calls: 10.
+12:00:13  INFO      HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 503 Service Unavailable"
+12:00:14  INFO        Extracting chunk 6/6: openai.txt_chunk_0001
+12:00:14  INFO      AFC is enabled with max remote calls: 10.
+12:00:16  INFO      HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 503 Service Unavailable"
+12:00:16  INFO      Total triples extracted: 58
+12:00:16  INFO      
+[ STAGE 3 ] Entity Resolution
+12:00:16  INFO      Building entity index...
+12:00:16  INFO        Unique entity strings before resolution: 50
+12:00:16  INFO      Clustering duplicate entities...
+12:01:12  INFO        Loading embedding model: all-MiniLM-L6-v2
+12:01:12  INFO      No device provided, using cpu
+12:01:13  INFO      HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+12:01:13  WARNING   Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+12:01:13  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/modules.json "HTTP/1.1 200 OK"
+12:01:14  INFO      HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+12:01:14  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config_sentence_transformers.json "HTTP/1.1 200 OK"
+12:01:14  INFO      Loading SentenceTransformer model from sentence-transformers/all-MiniLM-L6-v2.
+12:01:14  INFO      HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+12:01:14  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config_sentence_transformers.json "HTTP/1.1 200 OK"
+12:01:15  INFO      HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+12:01:15  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/README.md "HTTP/1.1 200 OK"
+12:01:15  INFO      HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+12:01:15  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/modules.json "HTTP/1.1 200 OK"
+12:01:15  INFO      HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+12:01:15  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/sentence_bert_config.json "HTTP/1.1 200 OK"
+12:01:15  INFO      HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+12:01:16  INFO      HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+12:01:16  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
+12:01:16  INFO      HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+12:01:16  INFO      HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+12:01:17  INFO      HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+12:01:17  INFO      HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+12:01:17  INFO      HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+12:01:17  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/tokenizer_config.json "HTTP/1.1 200 OK"
+12:01:17  INFO      HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+12:01:17  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
+12:01:18  INFO      HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+12:01:18  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
+12:01:18  INFO      HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+12:01:18  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/tokenizer_config.json "HTTP/1.1 200 OK"
+12:01:18  INFO      HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+12:01:18  INFO      HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+12:01:19  INFO      HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+12:01:19  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+12:01:19  INFO      HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+12:01:19  INFO        Resolved 4 alias(es) to canonical forms
+12:01:19  INFO        Canonical entities: 46
+12:01:19  INFO      Rewriting triples with canonical names...
+12:01:19  INFO      
+[ STAGE 4 ] Graph Construction
+12:01:20  INFO      Building graph from 58 triple(s)...
+12:01:20  INFO        Nodes: 46, Edges: 58
+12:01:20  INFO      Writing graph to Neo4j...
+12:01:24  WARNING     Neo4j connection failed: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 10061] No connection could be made because the target machine actively refused it)
+Failed to establish connection to ResolvedIPv4Address(('127.0.0.1', 7687)) (reason [WinError 10061] No connection could be made because the target machine actively refused it)
+12:01:24  WARNING     Skipping Neo4j — results saved to files only
+12:01:24  INFO      
+[ STAGE 5 ] Evaluation
+12:01:24  INFO      
+Pipeline completed in 151.6s
+12:01:24  INFO      Outputs saved to: D:\College\Masters\Thesis\kg_pipeline 2\kg_pipeline\data\output
+12:01:24  INFO      Neo4j browser: http://localhost:7474
+12:01:24  INFO        Query: MATCH (n)-[r]->(m) RETURN n,r,m LIMIT 50
