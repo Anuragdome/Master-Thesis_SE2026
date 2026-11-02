@@ -1,0 +1,50 @@
+# Core LLM & orchestration
+# Multi-LLM Consensus Verification Framework:
+#   - Gemini via the hosted API (google-genai)
+#   - Llama 3.1 8B / Qwen 3 8B locally through Ollama (aiohttp REST calls)
+# anthropic/openai are NOT used by this project (Gemini + local Ollama only)
+# but are left importable in case you re-enable the legacy provider branch.
+anthropic>=0.25.0
+openai>=1.30.0
+google-genai>=0.3.0
+aiohttp>=3.9.0
+langchain>=0.2.0
+langchain-community>=0.2.0
+langchain-text-splitters>=0.2.0
+
+# Document loading
+pymupdf>=1.24.0        # PDF parsing
+beautifulsoup4>=4.12.0 # HTML parsing
+lxml>=5.2.0
+
+# NLP
+spacy>=3.7.0
+# After install, run: python -m spacy download en_core_web_sm
+
+# Entity resolution
+rapidfuzz>=3.9.0
+sentence-transformers>=3.0.0
+scikit-learn>=1.5.0
+numpy>=1.26.0
+
+# Graph database
+neo4j>=5.20.0
+networkx>=3.3.0
+
+# Data handling
+pandas>=2.2.0
+python-dotenv>=1.0.0
+pydantic>=2.7.0
+tqdm>=4.66.0
+
+# Notebooks & visualisation
+jupyter>=1.0.0
+matplotlib>=3.9.0
+plotly>=5.22.0
+pyvis>=0.3.2
+
+# Testing
+pytest>=8.2.0
+pytest-asyncio>=0.23.0
+
+streamlit>=1.36.0
